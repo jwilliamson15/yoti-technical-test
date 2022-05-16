@@ -8,7 +8,5 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 public class RoboticHoover {
-
-    private Integer hooverXPosition;
-    private Integer hooverYPosition;
+    private Coordinate position;
 }

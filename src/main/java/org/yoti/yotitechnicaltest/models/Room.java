@@ -1,6 +1,6 @@
 package org.yoti.yotitechnicaltest.models;
 
-import java.util.HashMap;
+import java.util.List;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,6 +13,5 @@ public class Room {
     private Integer roomXDimension;
     private Integer roomYDimension;
 
-    private HashMap<Integer, Integer> dirtPatches;
-
+    private List<Coordinate> dirtPatches;
 }

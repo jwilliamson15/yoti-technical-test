@@ -14,4 +14,18 @@ import lombok.Setter;
 public class Coordinate {
     private Integer x;
     private Integer y;
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == this) {
+            return true;
+        }
+        if (!(o instanceof Coordinate)) {
+            return false;
+        }
+
+        Coordinate coordObj = (Coordinate) o;
+        return Integer.compare(x, coordObj.x) == 0
+            && Integer.compare(y, coordObj.y) == 0;
+    }
 }

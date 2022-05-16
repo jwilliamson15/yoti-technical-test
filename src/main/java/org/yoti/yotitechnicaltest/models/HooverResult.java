@@ -8,7 +8,6 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 public class HooverResult {
-    private Integer hooverXPosition = 0;
-    private Integer hooverYPosition = 0;
-    private Integer patchesCleaned = 0;
+    private Coordinate coords;
+    private Integer patches = 0;
 }
