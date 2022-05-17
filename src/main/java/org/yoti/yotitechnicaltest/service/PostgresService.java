@@ -7,10 +7,11 @@ import org.yoti.yotitechnicaltest.models.HooverResult;
 import org.yoti.yotitechnicaltest.repositories.HooverRequestRepository;
 import org.yoti.yotitechnicaltest.repositories.HooverResultRepository;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @Service
 public class PostgresService implements DatabaseService {
-
-    //TODO - create tables and test db!
 
     @Autowired
     private HooverRequestRepository requestRepo;
@@ -19,11 +20,13 @@ public class PostgresService implements DatabaseService {
 
     @Override
     public void saveRequest(HooverRequest request) {
-        requestRepo.save(request);
+        requestRepo.saveAndFlush(request);
+        log.info("Write to request table");
     }
 
     @Override
     public void saveResult(HooverResult result) {
-        resultRepo.save(result);
+        resultRepo.saveAndFlush(result);
+        log.info("Write to result table");
     }
 }

@@ -1,6 +1,5 @@
 package org.yoti.yotitechnicaltest.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.yoti.yotitechnicaltest.models.HooverRequest;
 import org.yoti.yotitechnicaltest.models.HooverResult;
@@ -12,9 +11,6 @@ import lombok.NoArgsConstructor;
 @Service
 @NoArgsConstructor
 public class HooverService {
-
-    @Autowired
-    DatabaseService databaseService;
 
     private static Room room = new Room();
     private static RoboticHoover notRoomba = new RoboticHoover();

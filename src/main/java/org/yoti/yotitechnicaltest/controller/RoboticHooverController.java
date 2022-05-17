@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.yoti.yotitechnicaltest.models.HooverRequest;
 import org.yoti.yotitechnicaltest.models.HooverResult;
+import org.yoti.yotitechnicaltest.service.DatabaseService;
 import org.yoti.yotitechnicaltest.service.HooverService;
 
 @RestController
@@ -16,12 +17,17 @@ public class RoboticHooverController {
     @Autowired
     private HooverService hooverService;
 
+    @Autowired
+    DatabaseService databaseService;
+
     @PostMapping
     @RequestMapping("/hoover")
     public HooverResult hooveringRequest(@RequestBody final HooverRequest hooverRequest) {
+        databaseService.saveRequest(hooverRequest);
+
         HooverResult result = hooverService.doTheHoovering(hooverRequest);
 
-        //TODO - slf4j logging
+        databaseService.saveResult(result);
 
         return result;
     }

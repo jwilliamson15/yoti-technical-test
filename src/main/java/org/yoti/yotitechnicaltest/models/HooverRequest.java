@@ -20,7 +20,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity(name = "hoover_requests")
-//@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class HooverRequest {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -38,7 +37,7 @@ public class HooverRequest {
     @Convert(converter = PatchesConverter.class)
     private List<Coordinate> patches;
 
-    @Column(name = "insturctions")
+    @Column(name = "instructions")
     private String instructions;
 
     public HooverRequest(Coordinate roomSize, Coordinate coords,
